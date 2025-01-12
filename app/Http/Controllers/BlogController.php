@@ -10,9 +10,18 @@ class BlogController extends Controller
     public function index() 
     {
         $data = Blog::orderBy('id', 'asc')->get();
-        return view('blog', [
+        return view('blogs', [
             'title' => 'Blogpage',
             'data' => $data
         ]);
     }   
+
+    public function single($slug)
+    {
+        $data = Blog::where('slug', $slug)->first();
+        return view('blog', [
+            'title' => 'Blogpage',
+            'blog' => $data
+        ]);
+    }
 }
