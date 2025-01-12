@@ -29,7 +29,7 @@
                 <label for="password" class="font-semibold">Confirm Password</label>
                 <input type="password" id="password" name="confirm" class="border-2 rounded-md px-2 py-1 w-[25rem] outline-blue-600">
             </div>
-            <button type="submit" class="bg-indigo-600 rounded-lg text-white font-semibold py-2 mt-3">Log in</button>
+            <button type="submit" class="bg-indigo-600 rounded-lg text-white font-semibold py-2 mt-3">Register</button>
         </form>
         <span class="mt-3">
             Already have an account? <a href="/login" class="text-blue-600 font-semibold">log in now</a>  

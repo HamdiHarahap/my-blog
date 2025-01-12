@@ -43,7 +43,7 @@ class AuthController extends Controller
         ];  
 
         User::create($data);
-        return redirect()->route('login')->with('success', 'Akun berhasil di daftarkan');  
+        return redirect()->route('login');  
     }
 
     public function login(Request $request) 

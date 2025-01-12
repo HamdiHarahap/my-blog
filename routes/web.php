@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,6 +22,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');
+    Route::post('/blog/{blog:slug}/comment', [CommentController::class, 'store'])->name('comment.store');
 });
-
-
