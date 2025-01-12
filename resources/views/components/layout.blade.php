@@ -11,7 +11,7 @@
     <div class="min-h-full">
         <x-navbar></x-navbar>
         <main>
-            <div class="px-52 py-7 min-h-screen">
+            <div class="px-52 py-7 min-h-screen w-full">
                 {{$slot}}
             </div>
         </main>
