@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Registrerpage</x-slot:title>
-    <div class="mx-auto max-w-screen-xl flex flex-col items-center min-h-screen justify-center">
+    <div class="mx-auto max-w-screen-xl flex flex-col items-center min-h-[85vh] justify-center">
         <h2 class="font-bold text-xl">Register your account</h2>
         <form action="{{route('register.post')}}" class="mx-auto mt-6 flex flex-col gap-3" method="POST">
             @if ($errors->any())

@@ -9,13 +9,20 @@
 </head>
 <body class="h-full">
     <div class="min-h-full">
-        <x-navbar></x-navbar>
+        
+        @unless(request()->is('login') || request()->is('register'))
+            <x-navbar></x-navbar>
+        @endunless
+
         <main>
             <div class="px-52 py-7 min-h-screen w-full">
                 {{$slot}}
             </div>
         </main>
-        <x-footer></x-footer>
+
+        @unless(request()->is('login') || request()->is('register'))
+            <x-footer></x-footer>
+        @endunless
     </div>
 </body>
 </html>

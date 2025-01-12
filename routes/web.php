@@ -5,12 +5,22 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return redirect()->route('login');
+});
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
 Route::get('/register', [AuthController::class, 'showRegistForm'])->name('regist');
 Route::post('/register', [AuthController::class, 'regist'])->name('register.post');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return view('welcome');
+    })->name('home');
+
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');
+});
+
+

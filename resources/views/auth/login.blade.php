@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Loginpage</x-slot:title>
-    <div class="mx-auto max-w-screen-xl flex flex-col items-center min-h-screen justify-center">
-        <h2 class="font-bold text-xl">Log in to your account</h2>
+    <div class="mx-auto max-w-screen-xl flex flex-col items-center min-h-[85vh] justify-center ">
+        <h2 class="font-bold text-xl">Log in to HamdiWrites</h2>
         <form action="{{route('login.post')}}" class="mx-auto mt-6 flex flex-col gap-3" method="POST">
             @if ($errors->any())
                 <div class="bg-red-300 px-8 py-4 rounded-md">
