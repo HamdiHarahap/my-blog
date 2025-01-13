@@ -64,7 +64,13 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        if($user->email_verified_at) {
+            return redirect()->route('admin');
+        } else {
+            return redirect()->route('home');
+        }
+
+
     }
 
     public function logout(Request $request)

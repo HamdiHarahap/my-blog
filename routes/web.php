@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -22,9 +23,27 @@ Route::middleware('auth')->group(function () {
         return view('welcome', compact('account'));
     })->name('home');
 
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard', [
+            'title' => 'Dasboard',
+            'active' => 'dashboard',
+            'back' => false,
+        ]);
+    })->name('admin');
+    Route::get('/admin/manage/tambah', function () {
+        return view('admin.tambah', [
+            'title' => 'Tambah Tulisan',
+            'active' => 'manage',
+            'back' => true,
+        ]);
+    });
+    Route::get('/admin/manage', [AdminController::class, 'manage'])->name('admin.manage');
+    Route::delete('/admin/manage/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');
     Route::post('/blog/{blog:slug}/comment', [CommentController::class, 'store'])->name('comment.store');
     Route::delete('/blog/{blog:slug}/comment/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
