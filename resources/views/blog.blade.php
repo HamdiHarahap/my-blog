@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:title>Blogpage</x-slot:title>
+    <x-slot:account>{{$account->name}}</x-slot:account>
     <div class="pt-24 mx-auto"> 
         <article class="p-6 text-black flex flex-col justify-center w-[40rem] mx-auto">
             <div class="flex mb-5 text-gray-500">

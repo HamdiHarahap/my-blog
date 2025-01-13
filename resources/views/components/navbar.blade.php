@@ -13,7 +13,7 @@
             <a href="/logout" class="hover:text-red-600 font-semibold text-base" onclick="return confirm('Anda yakin akan logout?')">logout</a>
         </div>
         <button class="btnAccount">
-            <img src="assets/icon/user.svg" alt="" class="w-10 border-2 border-black rounded-full p-1">
+            <img src="{{asset('assets/icon/user.svg')}}" alt="" class="w-10 border-2 border-black rounded-full p-1">
         </button>
     </div>
 </nav>
