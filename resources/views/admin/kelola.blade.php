@@ -23,7 +23,7 @@
                     <td class="p-2">{{Str::limit($item->body, 150)}}</td>
                     <td class="p-2">
                         <div class="flex gap-1">
-                            <a href="" class="flex items-center justify-center bg-yellow-300 rounded-lg cursor-pointer p-1 w-fit">
+                            <a href="/admin/manage/edit/{{$item->id}}" class="flex items-center justify-center bg-yellow-300 rounded-lg cursor-pointer p-1 w-fit">
                                 <img src="../assets/icon/edit.svg" alt="logo" class="w-6">
                             </a>
                             <form action="{{route('admin.destroy', ['id' => $item->id])}}" method="POST">

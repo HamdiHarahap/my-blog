@@ -37,4 +37,16 @@ class AdminController extends Controller
         Blog::create($data);
         return redirect()->route('admin.manage');
     }
+
+    public function update(Request $request, string $id)
+    {
+        $data = [
+            'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
+            'body' => $request->input('body'),
+        ];
+
+        Blog::where('id', $id)->update($data);
+        return redirect()->route('admin.manage');
+    }
 }

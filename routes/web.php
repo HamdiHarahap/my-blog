@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
@@ -37,9 +38,19 @@ Route::middleware('auth')->group(function () {
             'back' => true,
         ]);
     });
+    Route::get('/admin/manage/edit/{id}', function ($id) {
+        $data = Blog::where('id', $id)->first();
+        return view('admin.edit', [
+            'title' => 'Tambah Tulisan',
+            'active' => 'manage',
+            'back' => true,
+            'data' => $data,
+        ]);
+    });
     Route::get('/admin/manage', [AdminController::class, 'manage'])->name('admin.manage');
     Route::delete('/admin/manage/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::post('/admin/manage', [AdminController::class, 'store'])->name('admin.store');
+    Route::put('/admin/manage/edit/{id}', [AdminController::class, 'update'])->name('admin.update');
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');
