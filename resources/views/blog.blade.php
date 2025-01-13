@@ -30,12 +30,21 @@
         <hr>
         <div class="p-6 text-black flex flex-col justify-center w-[40rem] mx-auto gap-3">
             @foreach ($comment as $com)
-                <div class="flex items-center gap-4 mb-3">
+                <div class="flex items-center justify-between gap-4 mb-3">
                     <img src="{{ asset('assets/icon/user.svg') }}" alt="" class="w-14 border-2 border-black rounded-full p-2">
-                    <div class="flex flex-col gap-3">
+                    <div class="flex flex-col gap-3 w-full">
                         <h3 class="font-bold text-xl">{{$com->user->name}}</h3>
                         <p>{{$com->komentar}}</p>
                     </div>
+                    @if ($com->user_id == $user->id)
+                        <form action="{{route('comment.destroy', ['blog' => $blog->slug, 'id' => $com->id])}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="bg-red-500 p-1 rounded-md" onclick="return confirm('Anda ingin menghapus komentar anda?')">
+                                <img src="{{asset('assets/icon/trash.svg')}}" alt="" class="w-7">
+                            </button>
+                        </form>
+                    @endif
                 </div>
                 <hr>
             @endforeach

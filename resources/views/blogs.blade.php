@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:title>Blogpage</x-slot:title>
+    <x-slot:account>{{$account->name}}</x-slot:account>
     <div class="pt-24 mx-auto max-w-screen-xl">
         <h1 class="text-3xl font-bold text-center mb-8">BLOG SAYA</h1>  
         <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">

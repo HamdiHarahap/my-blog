@@ -31,5 +31,9 @@ class CommentController extends Controller
         return redirect()->route('blog.slug', $blog->slug)->with('success', 'Komentar berhasil ditambahkan!');
     }
 
-
+    public function destroy(string $slug, string $id)
+    {
+        Comment::where('id', $id)->delete();
+        return redirect()->route('blog.slug', ['blog' => $slug]);
+    }
 }

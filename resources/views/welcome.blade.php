@@ -1,5 +1,6 @@
 <x-layout>
     <x-slot:title>Homepage</x-slot:title>
+    <x-slot:account>{{$account->name}}</x-slot:account>
     <div class="flex justify-center items-center min-h-screen gap-5">
         <div class="flex items-center justify-center relative">
             <div class="bg-blue-500 w-[17rem] h-[17rem] rounded-full absolute"></div>
