@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/admin/manage', [AdminController::class, 'manage'])->name('admin.manage');
     Route::delete('/admin/manage/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
+    Route::post('/admin/manage', [AdminController::class, 'store'])->name('admin.store');
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog.slug');

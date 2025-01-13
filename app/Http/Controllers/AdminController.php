@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,6 +23,18 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         Blog::where('id', $id)->delete();
+        return redirect()->route('admin.manage');
+    }
+    
+    public function store(Request $request)
+    {
+        $data = [
+            'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
+            'body' => $request->input('body'),
+        ];
+
+        Blog::create($data);
         return redirect()->route('admin.manage');
     }
 }

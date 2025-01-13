@@ -3,7 +3,8 @@
     <x-slot:active>{{$active}}</x-slot:active>
     <div>
         <h1 class="text-sm font-semibold mb-6">Tambah Tulisan</h1>
-        <form action="" method="POST" class="flex flex-col gap-4 items-start" enctype="multipart/form-data">
+        <form action="{{route('admin.store')}}" method="POST" class="flex flex-col gap-4 items-start" enctype="multipart/form-data">
+            @csrf
             <ul class="flex flex-col gap-6 w-full">
                 <li class="flex flex-col">
                     <label for="title" class="mb-1">Judul Tulisan: </label>
