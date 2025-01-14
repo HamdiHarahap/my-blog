@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
             'data' => $data,
         ]);
     });
+    Route::get('/admin/users', [AdminController::class, 'showUser'])->name('admin.user');
     Route::get('/admin/manage', [AdminController::class, 'manage'])->name('admin.manage');
     Route::delete('/admin/manage/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::post('/admin/manage', [AdminController::class, 'store'])->name('admin.store');

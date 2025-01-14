@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -48,5 +49,18 @@ class AdminController extends Controller
 
         Blog::where('id', $id)->update($data);
         return redirect()->route('admin.manage');
+    }
+
+    public function showUser()
+    {
+        $user = User::where('email_verified_at', null)->get();
+        $data = [
+            'title' => 'User',
+            'active' => 'user',
+            'data' => $user,
+            'back' => false,
+        ];
+        
+        return view('admin.user', $data);
     }
 }

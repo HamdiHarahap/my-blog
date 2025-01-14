@@ -24,15 +24,15 @@
                     </a>
                 </li>
                 <li class="{{ $active == 'user' ? 'bg-[#F2F9FE] px-10 py-3 text-black rounded-s-lg' : '' }}">
-                    <a href="/admin/user" class="flex gap-2 {{ $active == 'user' ? '' : 'px-10 py-3' }}">
+                    <a href="/admin/users" class="flex gap-2 {{ $active == 'user' ? '' : 'px-10 py-3' }}">
                         <img src="{{ asset('/assets/icon/customer' . ($active == 'user' ? '-dark' : '') . '.svg') }}" alt="logo" class="w-6">
-                        User
+                        Users
                     </a>
                 </li>
                 <li class="{{ $active == 'report' ? 'bg-[#F2F9FE] px-10 py-3 text-black rounded-s-lg' : '' }}">
-                    <a href="/admin/report" class="flex gap-2 {{ $active == 'report' ? '' : 'px-10 py-3' }}">
+                    <a href="/admin/comments" class="flex gap-2 {{ $active == 'report' ? '' : 'px-10 py-3' }}">
                         <img src="{{ asset('/assets/icon/report' . ($active == 'report' ? '-dark' : '') . '.svg') }}" alt="logo" class="w-6">
-                        Laporan
+                        Comments
                     </a>
                 </li>
             </ul>
