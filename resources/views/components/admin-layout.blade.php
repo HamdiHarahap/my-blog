@@ -29,9 +29,9 @@
                         Users
                     </a>
                 </li>
-                <li class="{{ $active == 'report' ? 'bg-[#F2F9FE] px-10 py-3 text-black rounded-s-lg' : '' }}">
-                    <a href="/admin/comments" class="flex gap-2 {{ $active == 'report' ? '' : 'px-10 py-3' }}">
-                        <img src="{{ asset('/assets/icon/report' . ($active == 'report' ? '-dark' : '') . '.svg') }}" alt="logo" class="w-6">
+                <li class="{{ $active == 'comments' ? 'bg-[#F2F9FE] px-10 py-3 text-black rounded-s-lg' : '' }}">
+                    <a href="/admin/comments" class="flex gap-2 {{ $active == 'comments' ? '' : 'px-10 py-3' }}">
+                        <img src="{{ asset('/assets/icon/report' . ($active == 'comments' ? '-dark' : '') . '.svg') }}" alt="logo" class="w-6">
                         Comments
                     </a>
                 </li>

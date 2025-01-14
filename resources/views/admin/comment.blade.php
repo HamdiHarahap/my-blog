@@ -8,15 +8,17 @@
                 <th class="p-2">No</th>
                 <th class="p-2">Nama</th>
                 <th class="p-2">Komentar</th>
-                <th class="p-2">Password</th>
+                <th class="p-2">Blog</th>
+                <th class="p-2">Tanggal</th>
             </tr>
             <?php $no = 1 ?>
             @foreach ($data as $item) 
                 <tr class="border">
                     <td class="p-2">{{$no++}}</td>
-                    <td class="p-2">{{$item->name}}</td>
-                    <td class="p-2">{{$item->email}}</td>
-                    <td class="p-2">{{$item->password}}</td>
+                    <td class="p-2">{{$item->user->name}}</td>
+                    <td class="p-2">{{$item->komentar}}</td>
+                    <td class="p-2">{{$item->blog->title}}</td>
+                    <td class="p-2">{{$item->created_at->format('d F Y')}}</td>
                 </tr>
             @endforeach
         </table>

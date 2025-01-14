@@ -24,13 +24,7 @@ Route::middleware('auth')->group(function () {
         return view('welcome', compact('account'));
     })->name('home');
 
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard', [
-            'title' => 'Dasboard',
-            'active' => 'dashboard',
-            'back' => false,
-        ]);
-    })->name('admin');
+    Route::get('/admin/dashboard', [AdminController::class, 'dataDashboard'])->name('admin');
     Route::get('/admin/manage/tambah', function () {
         return view('admin.tambah', [
             'title' => 'Tambah Tulisan',
@@ -48,6 +42,7 @@ Route::middleware('auth')->group(function () {
         ]);
     });
     Route::get('/admin/users', [AdminController::class, 'showUser'])->name('admin.user');
+    Route::get('/admin/comments', [AdminController::class, 'showComment'])->name('admin.comment');
     Route::get('/admin/manage', [AdminController::class, 'manage'])->name('admin.manage');
     Route::delete('/admin/manage/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::post('/admin/manage', [AdminController::class, 'store'])->name('admin.store');
